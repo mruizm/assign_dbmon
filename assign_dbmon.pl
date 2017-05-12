@@ -148,7 +148,7 @@ foreach my $read_nodename (@node_or_list)
       }
       print "\rAssigning nodegroups to node...FAILED!";
       chomp($failed_ng_out);
-      print "\nFailed: $failed_ng_out\n";
+      print "\nFailed: $failed_ng_out";
     }
     else
     {
