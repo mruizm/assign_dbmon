@@ -134,7 +134,7 @@ foreach my $read_nodename (@node_or_list)
   {
     chomp($nodename_mach_type = $r_check_node_in_HPOM[3]);
     print "\rChecking node in HPOM database...DONE!";
-    print "\nAssigning nodegroups to node...\n";
+    print "\nAssigning nodegroups to node...";
     my @r_assign_dbmon_nodegroups_to_node = assign_dbmon_nodegroups_to_node(\@dbmon_ng_to_ch, $read_nodename, $nodename_mach_type);
     my $failed_ng_out = "";
     #If sub retuned failed ng to assign
@@ -146,8 +146,9 @@ foreach my $read_nodename (@node_or_list)
         chomp($datetime_stamp_log = `date "+%m%d%Y_%H%M%S"`);
         script_logger($datetime_stamp_log, $assign_dbmon_log, "assign_dbmon_nodegroups_to_node():$read_nodename>>$my_err_ng:ASSIGNMENT_NOT_POSSIBLE");
       }
+      print "\rAssigning nodegroups to node...FAILED!";
       chomp($failed_ng_out);
-      print "Failed: $failed_ng_out\n";
+      print "\nFailed: $failed_ng_out\n";
     }
     else
     {
